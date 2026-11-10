@@ -35,3 +35,20 @@ export function setupSteps(count: number, render: (step: number) => void, initia
   element('#static-fallback').hidden = true
   return { go, update, current: () => current }
 }
+export function choice<const V extends readonly string[]>(key: string, values: V, fallback: V[number]): V[number] {
+  const value = new URLSearchParams(location.search).get(key)
+  return values.includes(value ?? '') ? value as V[number] : fallback
+}
+export function numberParam(key: string, fallback: number, min: number, max: number): number {
+  const raw = new URLSearchParams(location.search).get(key)
+  const value = raw === null ? fallback : Number(raw)
+  return Number.isFinite(value) ? Math.max(min, Math.min(max, Math.round(value))) : fallback
+}
+export function pressed(selector: string, key: string, value: string): void {
+  document.querySelectorAll<HTMLButtonElement>(selector).forEach(button => button.setAttribute('aria-pressed', String(button.dataset[key] === value)))
+}
+export function text(selector: string, value: string | number): void { element(selector).textContent = String(value) }
+export function stepCopy(copy: Record<string, string>, step: number): void {
+  text('#step-title', copy[`step${step}Title`])
+  text('#step-explanation', copy[`step${step}Explanation`])
+}

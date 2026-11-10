@@ -13,12 +13,14 @@ const site = (process.env.SITE_URL || 'https://xujiahua.github.io').replace(/\/$
 const review = process.argv.includes('--review')
 const reviewLessons = process.argv.filter(arg => arg.startsWith('--lesson=')).map(arg => arg.slice('--lesson='.length))
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
+const navigationStyle = await readFile(resolve(root, 'explainers/shared/navigation.css'), 'utf8')
 for (const language of languages)
   await rm(resolve(root, 'public', languagePrefix(language), 'explainers'), { recursive: true, force: true })
 for (const file of await readdir(resolve(root, 'src/content/topics'))) {
   if (!file.endsWith('.json')) continue
   const topic = slugSchema.parse(file.slice(0, -5))
   const data = topicSchema.parse(JSON.parse(await readFile(resolve(root, 'src/content/topics', file), 'utf8')))
+  const publishedLessons = data.lessons.filter(lesson => lesson.status === 'published')
   for (const lesson of data.lessons) {
     if (lesson.status !== 'published') continue
     const folder = resolve(root, 'explainers', topic, lesson.slug)
@@ -52,6 +54,11 @@ for (const file of await readdir(resolve(root, 'src/content/topics'))) {
         return escape(values[key])
       })
       if (/\{\{.*?\}\}/.test(source)) throw new Error(`Unresolved placeholder: ${folder}`)
+      const position = publishedLessons.findIndex(item => item.slug === lesson.slug)
+      const navigation = language === 'en' ? { label: 'Course navigation', previous: 'Previous lesson', next: 'Next lesson', progress: `Lesson ${position + 1} of ${publishedLessons.length}` } : { label: '课程导航', previous: '上一讲', next: '下一讲', progress: `第 ${position + 1} 讲，共 ${publishedLessons.length} 讲` }
+      const courseLink = (item, direction) => item ? `<a rel="${direction}" href="${escape(`${base}/${languagePrefix(language)}explainers/${topic}/${item.slug}/`)}"><small>${direction === 'prev' ? navigation.previous : navigation.next}</small><span>${escape(item.title[language])} ${direction === 'prev' ? '←' : '→'}</span></a>` : '<span></span>'
+      const courseNavigation = `<nav class="course-nav" aria-label="${navigation.label}"><p>${navigation.progress}</p>${courseLink(publishedLessons[position - 1], 'prev')}${courseLink(publishedLessons[position + 1], 'next')}</nav>`
+      source = source.replace('</head>', `<style>${navigationStyle}</style></head>`).replace('</main>', `${courseNavigation}</main>`)
       source = source.replace('<script data-interaction></script>', `<script>${script}</script>`)
       const input = resolve(root, '.generated', language, topic, lesson.slug, `${lesson.slug}.src.html`)
       const output = resolve(dirname(input), 'index.html')

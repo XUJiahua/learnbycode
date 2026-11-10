@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}" data-register="blueprint">
+<head>
+<title>{{t:title}} · Learn by Code</title>
+<meta name="description" content="{{t:lead}}">
+<link rel="canonical" href="{{PAGE_URL}}">
+<link rel="alternate" hreflang="zh-CN" href="{{ZH_URL}}">
+<link rel="alternate" hreflang="en" href="{{EN_URL}}">
+<link rel="stylesheet" href="kit.css" data-ve-kit>
+<style data-lesson-style></style>
+</head>
+<body>
+<a class="skip" href="#main">{{t:skip}}</a>
+<main id="main">
+<nav class="page-nav" aria-label="{{t:navigation}}"><a class="brand" href="{{HOME_URL}}">[↗] learnbycode</a><a href="{{TOPIC_URL}}">← DeepSeek Super-agent</a><a data-language-switch href="{{OTHER_URL}}" lang="{{OTHER_LANG}}">{{OTHER_LABEL}}</a></nav>
+<header class="heading"><p class="eyebrow">{{t:eyebrow}}</p><h1>{{t:title}}</h1><p class="lead">{{t:lead}}</p><p class="meta">{{t:simulation}} · {{t:verified}}</p></header>
+<figure class="lesson">
+<div class="stage" tabindex="0" role="region" aria-label="{{t:diagramLabel}}"><p class="dimension">{{t:dimension}}</p><div class="options" data-interactive hidden><button id="send-message" type="button">{{t:send}}</button></div><div class="lanes"><section class="lane"><h2>{{t:sync}}</h2><div class="cell"><span class="label">{{t:foreground}}</span><strong class="value" id="sync-state">{{t:sync0}}</strong></div><div class="cell"><span class="label">{{t:background}}</span><strong class="value" id="sync-job">{{t:job0}}</strong><div class="job" aria-hidden="true"><span id="sync-bar"></span></div></div><div class="cell pending"><span class="label">{{t:input}}</span><span class="value" id="sync-input">{{t:input0}}</span></div></section><section class="lane"><h2>{{t:async}}</h2><div class="cell"><span class="label">{{t:foreground}}</span><strong class="value" id="async-state">{{t:async0}}</strong></div><div class="cell"><span class="label">{{t:background}}</span><strong class="value" id="async-job">{{t:job0}}</strong><div class="job" aria-hidden="true"><span id="async-bar"></span></div></div><div class="cell pending"><span class="label">{{t:input}}</span><span class="value" id="async-input">{{t:input0}}</span></div></section></div><p class="notice">{{t:jobHint}}</p></div>
+<div class="actions" data-interactive hidden><button id="restart" type="button">{{t:restart}}</button><button id="previous" type="button">{{t:previous}}</button><button id="next" type="button">{{t:next}} →</button><input id="progress" type="range" min="0" max="4" value="0" aria-label="{{t:progress}}"><span class="count" id="step-count">1 / 5</span></div>
+<div class="step-copy" aria-live="polite" aria-atomic="true"><h2 id="step-title">{{t:step0Title}}</h2><p id="step-explanation">{{t:step0Explanation}}</p></div>
+<figcaption>Fig. 1 · {{t:caption}}</figcaption>
+</figure>
+<p id="static-fallback" class="notice">{{t:fallback}}</p>
+<section class="below" aria-label="{{t:codeTitle}}"><div><h2>{{t:codeTitle}}</h2><a id="source-link" class="source-link" href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/docs/003-execution.md#L23">{{t:source0}} ↗</a><pre><code id="source-code">{{t:step0Code}}</code></pre><p>{{t:codeNote}}</p></div><div><h2>{{t:limitsTitle}}</h2><ul><li>{{t:limit0}}</li><li>{{t:limit1}}</li><li>{{t:limit2}}</li></ul></div></section>
+<section class="sources" aria-label="{{t:sources}}"><p class="eyebrow">{{t:sources}}</p><div class="source-links"><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/docs/003-execution.md#L23">{{t:source0}} ↗</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/cordis.patch.yml#L40">{{t:source1}} ↗</a><a href="https://github.com/deepseek-ai/deepseek-harness/blob/fcc0ad462172522aaf5c93a7b2e01f6b9f0b0159/packages/jobs/tool-jobs/src/index.ts#L338">{{t:source2}} ↗</a></div></section>
+<a class="source-link" href="{{TOPIC_URL}}">← {{t:back}}</a>
+</main>
+<script data-interaction></script>
+</body>
+</html>

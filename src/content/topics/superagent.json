@@ -61,8 +61,9 @@
         "zh": "异步 ReAct 如何缩短前台等待。",
         "en": "How asynchronous ReAct reduces foreground waiting."
       },
-      "status": "planned",
-      "minutes": 6
+      "status": "published",
+      "minutes": 6,
+      "verifiedAt": "2026-11-10"
     },
     {
       "slug": "recovery",

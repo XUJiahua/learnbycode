@@ -11,6 +11,7 @@ const renderer = resolve(root, 'node_modules/visual-explainer/plugins/visual-exp
 const base = (process.env.BASE_PATH || '/learnbycode').replace(/\/$/, '')
 const site = (process.env.SITE_URL || 'https://xujiahua.github.io').replace(/\/$/, '')
 const review = process.argv.includes('--review')
+const reviewLessons = process.argv.filter(arg => arg.startsWith('--lesson=')).map(arg => arg.slice('--lesson='.length))
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
 for (const language of languages)
   await rm(resolve(root, 'public', languagePrefix(language), 'explainers'), { recursive: true, force: true })
@@ -22,6 +23,8 @@ for (const file of await readdir(resolve(root, 'src/content/topics'))) {
     if (lesson.status !== 'published') continue
     const folder = resolve(root, 'explainers', topic, lesson.slug)
     const template = await readFile(resolve(folder, `${lesson.slug}.src.html`), 'utf8')
+    const sharedStyle = template.includes('<style data-lesson-style></style>')
+      ? await readFile(resolve(root, 'explainers/shared/lesson.css'), 'utf8') : ''
     const copy = JSON.parse(await readFile(resolve(folder, `${lesson.slug}.copy.json`), 'utf8'))
     if (!copy.zh || !copy.en || JSON.stringify(Object.keys(copy.zh).sort()) !== JSON.stringify(Object.keys(copy.en).sort()))
       throw new Error(`Translation keys must match: ${folder}`)
@@ -41,7 +44,7 @@ for (const file of await readdir(resolve(root, 'src/content/topics'))) {
         ZH_URL: site + page('zh'), EN_URL: site + page('en'),
         OTHER_URL: page(other), OTHER_LANG: htmlLanguage[other], OTHER_LABEL: other === 'en' ? 'English' : '中文',
       }
-      let source = template.replace(/\{\{t:([a-zA-Z0-9_]+)\}\}/g, (_, key) => {
+      let source = template.replace('<style data-lesson-style></style>', `<style>${sharedStyle}</style>`).replace(/\{\{t:([a-zA-Z0-9_]+)\}\}/g, (_, key) => {
         if (!Object.hasOwn(copy[language], key)) throw new Error(`Missing ${language} translation: ${key}`)
         return escape(copy[language][key])
       }).replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
@@ -54,7 +57,8 @@ for (const file of await readdir(resolve(root, 'src/content/topics'))) {
       const output = resolve(dirname(input), 'index.html')
       await mkdir(dirname(input), { recursive: true })
       await writeFile(input, source)
-      const result = spawnSync(process.execPath, [renderer, input, '-o', output, '--root', root, ...(review ? [] : ['--no-check'])], { cwd: root, stdio: 'inherit' })
+      const checkVisual = review && (!reviewLessons.length || reviewLessons.includes(lesson.slug))
+      const result = spawnSync(process.execPath, [renderer, input, '-o', output, '--root', root, ...(checkVisual ? [] : ['--no-check'])], { cwd: root, stdio: 'inherit' })
       if (result.status !== 0) throw new Error(`Visual Explainer render failed: ${language}/${topic}/${lesson.slug}`)
       const published = resolve(root, 'public', languagePrefix(language), 'explainers', topic, lesson.slug, 'index.html')
       await mkdir(dirname(published), { recursive: true })

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}" data-register="blueprint">
+<head>
+<title>{{t:title}} · Learn by Code</title>
+<meta name="description" content="{{t:lead}}">
+<link rel="canonical" href="{{PAGE_URL}}">
+<link rel="alternate" hreflang="zh-CN" href="{{ZH_URL}}">
+<link rel="alternate" hreflang="en" href="{{EN_URL}}">
+<link rel="stylesheet" href="kit.css" data-ve-kit>
+<style data-lesson-style></style>
+</head>
+<body>
+<a class="skip" href="#main">{{t:skip}}</a>
+<main id="main">
+<nav class="page-nav" aria-label="{{t:navigation}}"><a class="brand" href="{{HOME_URL}}">[↗] learnbycode</a><a href="{{TOPIC_URL}}">← DeepSeek Super-agent</a><a data-language-switch href="{{OTHER_URL}}" lang="{{OTHER_LANG}}">{{OTHER_LABEL}}</a></nav>
+<header class="heading"><p class="eyebrow">{{t:eyebrow}}</p><h1>{{t:title}}</h1><p class="lead">{{t:lead}}</p><p class="meta">{{t:simulation}} · {{t:verified}}</p></header>
+<figure class="lesson">
+<div class="stage" tabindex="0" role="region" aria-label="{{t:diagramLabel}}"><div class="flow" role="group" aria-label="{{t:diagramLabel}}"><button data-resource="0" type="button">Trigger<small>{{t:node0}}</small><small>thread/demo-chat</small></button><button data-resource="1" type="button">Thread<small>{{t:node1}}</small><small>ticket/demo-login</small></button><button data-resource="2" type="button">Ticket<small>{{t:node2}}</small><small>report/demo-run</small></button><button data-resource="3" type="button">Report<small>{{t:node3}}</small><small>read: ticket/…/report/…</small></button></div><div class="branch"><button data-resource="4" type="button">{{t:related}}</button><span>{{t:relatedHint}}</span></div><div class="resource-head"><span class="label">{{t:resourceLabel}}</span><button id="read-full" type="button" aria-pressed="false" data-interactive hidden>{{t:readFull}}</button></div><pre class="packet" id="packet">{ "trigger_id": "demo-message", "thread": "demo-chat", "read": "trigger/demo-message" }</pre><p class="notice">{{t:packetHint}}</p></div>
+<div class="actions" data-interactive hidden><button id="restart" type="button">{{t:restart}}</button><button id="previous" type="button">{{t:previous}}</button><button id="next" type="button">{{t:next}} →</button><input id="progress" type="range" min="0" max="4" value="0" aria-label="{{t:progress}}"><span class="count" id="step-count">1 / 5</span></div>
+<div class="step-copy" aria-live="polite" aria-atomic="true"><h2 id="step-title">{{t:step0Title}}</h2><p id="step-explanation">{{t:step0Explanation}}</p></div>
+<figcaption>Fig. 1 · {{t:caption}}</figcaption>
+</figure>
+<p id="static-fallback" class="notice">{{t:fallback}}</p>
+<section class="below" aria-label="{{t:codeTitle}}"><div><h2>{{t:codeTitle}}</h2><a id="source-link" class="source-link" href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/app/cards.ts#L8">{{t:source0}} ↗</a><pre><code id="source-code">{{t:step0Code}}</code></pre><p>{{t:codeNote}}</p></div><div><h2>{{t:limitsTitle}}</h2><ul><li>{{t:limit0}}</li><li>{{t:limit1}}</li><li>{{t:limit2}}</li></ul></div></section>
+<section class="sources" aria-label="{{t:sources}}"><p class="eyebrow">{{t:sources}}</p><div class="source-links"><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/app/cards.ts#L8">{{t:source0}} ↗</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/app/resources.ts#L24">{{t:source1}} ↗</a><a href="https://x.com/DeepSeekHarness/status/2116857257245987236">{{t:source2}} ↗</a></div></section>
+<a class="source-link" href="{{TOPIC_URL}}">← {{t:back}}</a>
+</main>
+<script data-interaction></script>
+</body>
+</html>

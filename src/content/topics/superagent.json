@@ -47,8 +47,9 @@
         "zh": "Inline & Spill 与 Chain of Recall。",
         "en": "Inline & Spill and Chain of Recall."
       },
-      "status": "planned",
-      "minutes": 7
+      "status": "published",
+      "minutes": 7,
+      "verifiedAt": "2026-11-10"
     },
     {
       "slug": "async-react",

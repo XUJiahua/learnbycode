@@ -1,3 +1,4 @@
+import './recall-extra'
 import copy from './recall.copy.json'
 import { element, language, setupSteps, preserveLanguageState } from '../../shared/steps'
 const T = copy[language]

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}" data-register="blueprint">
+<head>
+<title>{{t:title}} · Learn by Code</title>
+<meta name="description" content="{{t:lead}}">
+<link rel="canonical" href="{{PAGE_URL}}">
+<link rel="alternate" hreflang="zh-CN" href="{{ZH_URL}}">
+<link rel="alternate" hreflang="en" href="{{EN_URL}}">
+<link rel="stylesheet" href="kit.css" data-ve-kit>
+<style data-lesson-style></style>
+</head>
+<body>
+<a class="skip" href="#main">{{t:skip}}</a>
+<main id="main">
+<nav class="page-nav" aria-label="{{t:navigation}}"><a class="brand" href="{{HOME_URL}}">[↗] learnbycode</a><a href="{{TOPIC_URL}}">← DeepSeek Super-agent</a><a data-language-switch href="{{OTHER_URL}}" lang="{{OTHER_LANG}}">{{OTHER_LABEL}}</a></nav>
+<header class="heading"><p class="eyebrow">{{t:eyebrow}}</p><h1>{{t:title}}</h1><p class="lead">{{t:lead}}</p><p class="meta">{{t:simulation}} · {{t:verified}}</p></header>
+<figure class="lesson">
+<div class="stage" tabindex="0" role="region" aria-label="{{t:diagramLabel}}"><div class="control-grid" data-interactive hidden><label>{{t:arrivals}} <output id="rate-value">3</output><input id="rate" type="range" min="1" max="8" value="3"></label><label>{{t:capacity}} <output id="capacity-value">4</output><input id="capacity" type="range" min="1" max="8" value="4"></label><label>{{t:shards}}<select id="shards"><option value="1">1</option><option value="2">2</option></select></label></div>
+<p class="label">{{t:round}} <strong id="round">1</strong> / 6</p><div class="diagram-columns two" id="queue-lanes"><section class="node-box"><h2>Router</h2><p>{{t:pending}}: 0</p><p>{{t:active}}: 3</p><p>{{t:done}}: 0</p></section></div><p class="result-line" id="context-note">{{t:sharedHint}}</p><p class="evidence">{{t:modelHint}}</p></div>
+<div class="actions" data-interactive hidden><button id="restart" type="button">{{t:restart}}</button><button id="previous" type="button">{{t:previous}}</button><button id="next" type="button">{{t:next}} →</button><input id="progress" type="range" min="0" max="4" value="0" aria-label="{{t:progress}}"><span class="count" id="step-count">1 / 5</span></div>
+<div class="step-copy" aria-live="polite" aria-atomic="true"><h2 id="step-title">{{t:step0Title}}</h2><p id="step-explanation">{{t:step0Explanation}}</p></div>
+<figcaption>Fig. 1 · {{t:caption}}</figcaption>
+</figure>
+<p id="static-fallback" class="notice">{{t:fallback}}</p>
+<figure class="addon"><h2>{{t:measureTitle}}</h2><div class="control-grid" data-interactive hidden><label><select id="measurement" aria-label="{{t:measureTitle}}"><option value="0">{{t:low}}</option><option value="1">{{t:high}}</option></select></label></div><div class="metric-grid"><div class="meter"><span class="label">{{t:batchMetric}}: <strong id="measured-batch">1.0</strong></span><div class="meter-track"><div id="measure-batch" class="meter-fill" style="--amount:33.33%"></div></div></div><div class="meter"><span class="label">{{t:requestMetric}}: <strong id="measured-request">2.5</strong></span><div class="meter-track"><div id="measure-request" class="meter-fill" style="--amount:35.71%"></div></div></div><div class="meter"><span class="label">{{t:decisionMetric}}: <strong id="measured-decision">6.4</strong></span><div class="meter-track"><div id="measure-decision" class="meter-fill" style="--amount:91.43%"></div></div></div></div><figcaption>Fig. 2 · {{t:measureCaption}}</figcaption></figure>
+<section class="below" aria-label="{{t:codeTitle}}"><div><h2>{{t:codeTitle}}</h2><a id="source-link" class="source-link" href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/core/evals.ts#L108">{{t:source0}} ↗</a><pre><code id="source-code">{{t:code}}</code></pre><p>{{t:codeNote}}</p></div><div><h2>{{t:limitsTitle}}</h2><ul><li>{{t:limit0}}</li><li>{{t:limit1}}</li><li>{{t:limit2}}</li></ul></div></section>
+<details class="quiz"><summary>{{t:check}}</summary><p>{{t:question}}</p><p>{{t:answer}}</p></details>
+<section class="sources" aria-label="{{t:sources}}"><p class="eyebrow">{{t:sources}}</p><div class="source-links"><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/core/evals.ts#L108">{{t:source0}} ↗</a><a href="https://x.com/DeepSeekHarness/status/2116857257245987236">{{t:source1}} ↗</a></div></section>
+<a class="source-link" href="{{TOPIC_URL}}">← {{t:back}}</a>
+</main>
+<script data-interaction></script>
+</body>
+</html>

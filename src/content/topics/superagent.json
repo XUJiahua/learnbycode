@@ -8,8 +8,8 @@
     "en": "See the system through one request"
   },
   "description": {
-    "zh": "沿着真实源码，理解 Agent 如何接收事件、分派任务、找回上下文，以及持续协作。",
-    "en": "Follow real source code to learn how agents receive events, dispatch work, recall context, and keep collaborating."
+    "zh": "沿着文章与真实源码，用十二篇交互讲解理解 Super-agent 的架构、协作、实验依据和开放问题。",
+    "en": "Follow the article and real source through twelve interactive lessons on Super-agent architecture, collaboration, experimental evidence, and open questions."
   },
   "order": 1,
   "tags": {
@@ -24,6 +24,20 @@
   },
   "lessons": [
     {
+      "slug": "architecture",
+      "title": {
+        "zh": "一个 Agent，为什么需要多个 Session？",
+        "en": "Why does one agent need several sessions?"
+      },
+      "description": {
+        "zh": "切换三种组织方式，观察跨渠道连续性与并发执行如何相互制约。",
+        "en": "Switch between three designs to inspect continuity across channels and concurrency across tasks."
+      },
+      "minutes": 7,
+      "status": "published",
+      "verifiedAt": "2026-11-10"
+    },
+    {
       "slug": "routing",
       "title": {
         "zh": "一条消息，走哪条路？",
@@ -35,6 +49,20 @@
       },
       "status": "published",
       "minutes": 6,
+      "verifiedAt": "2026-11-10"
+    },
+    {
+      "slug": "batching",
+      "title": {
+        "zh": "Router 为什么没有被消息淹没？",
+        "en": "Why is the Router not overwhelmed?"
+      },
+      "description": {
+        "zh": "调节事件到达量与合批上限，观察队列；再对照原文的真实测量端点。",
+        "en": "Adjust arrivals and batch capacity, inspect the queue, then compare the article’s measured endpoints."
+      },
+      "minutes": 7,
+      "status": "published",
       "verifiedAt": "2026-11-10"
     },
     {
@@ -52,6 +80,20 @@
       "verifiedAt": "2026-11-10"
     },
     {
+      "slug": "speculation",
+      "title": {
+        "zh": "用户还没下指令，可以先做什么？",
+        "en": "What can an agent prepare before being asked?"
+      },
+      "description": {
+        "zh": "切换主动接单模式与调查结果，观察何时执行、何时只记录、何时安静结束。",
+        "en": "Switch acceptance mode and investigation outcome to see when work runs, is only recorded, or ends quietly."
+      },
+      "minutes": 7,
+      "status": "published",
+      "verifiedAt": "2026-11-10"
+    },
+    {
       "slug": "async-react",
       "title": {
         "zh": "任务还在跑，指令已经到",
@@ -66,6 +108,34 @@
       "verifiedAt": "2026-11-10"
     },
     {
+      "slug": "channels",
+      "title": {
+        "zh": "同一件事，群聊和 PR 应该怎样表达？",
+        "en": "How should the same work appear in chat and a PR?"
+      },
+      "description": {
+        "zh": "切换渠道与任务方向；对话窗口改变，任务身份和执行记录仍连续。",
+        "en": "Switch channel and task direction. The conversation surface changes while task identity and execution records remain continuous."
+      },
+      "minutes": 7,
+      "status": "published",
+      "verifiedAt": "2026-11-10"
+    },
+    {
+      "slug": "byom",
+      "title": {
+        "zh": "Agent 在云端，为什么还能操作我的电脑？",
+        "en": "How can a cloud agent work on my computer?"
+      },
+      "description": {
+        "zh": "拆开推理计算、持久状态和执行环境，再模拟设备离线与 Loop 重启。",
+        "en": "Separate inference compute, durable state, and execution environments, then simulate device disconnection and a Loop restart."
+      },
+      "minutes": 7,
+      "status": "published",
+      "verifiedAt": "2026-11-10"
+    },
+    {
       "slug": "recovery",
       "title": {
         "zh": "进程停止后，工作如何继续",
@@ -77,6 +147,48 @@
       },
       "status": "published",
       "minutes": 8,
+      "verifiedAt": "2026-11-10"
+    },
+    {
+      "slug": "experiments",
+      "title": {
+        "zh": "实验究竟证明了什么？",
+        "en": "What do the experiments actually establish?"
+      },
+      "description": {
+        "zh": "比较四种实验设计的延迟和 cache-read tokens，辨别收益、代价与证据边界。",
+        "en": "Compare latency and cache-read tokens across four designs, separating benefits, tradeoffs, and evidence limits."
+      },
+      "minutes": 8,
+      "status": "published",
+      "verifiedAt": "2026-11-10"
+    },
+    {
+      "slug": "boundaries",
+      "title": {
+        "zh": "哪些上下文共享，哪些必须隔离？",
+        "en": "Which context is shared, and which is isolated?"
+      },
+      "description": {
+        "zh": "切换共享实例、Router 分片和独立实例，观察信息可见性与协调路径。",
+        "en": "Switch between a shared instance, Router shards, and separate instances to inspect information visibility and coordination."
+      },
+      "minutes": 7,
+      "status": "published",
+      "verifiedAt": "2026-11-10"
+    },
+    {
+      "slug": "security",
+      "title": {
+        "zh": "外部消息如何影响执行设备？",
+        "en": "How can an external message affect execution devices?"
+      },
+      "description": {
+        "zh": "追踪不可信输入到工具执行的路径，比较权限约束与不暴露凭据分别解决什么。",
+        "en": "Trace untrusted input to tool execution and compare what permission constraints and opaque credential use each address."
+      },
+      "minutes": 7,
+      "status": "published",
       "verifiedAt": "2026-11-10"
     }
   ]

@@ -13,7 +13,7 @@ const contentPath = kind === 'home' ? '' : kind === 'topics' ? 'topics/' : kind 
 ---
 <SiteLayout {language} {title} {description} {contentPath} noindex={kind === 'notFound'}>
   {kind === 'home' && <>
-    <section class="intro"><p class="eyebrow">{t.eyebrow}</p><h1>{t.heading1}<br />{t.heading2}</h1><p class="lead">{t.lead}</p><a class="text-link" href={localizedPath(language, 'explainers/superagent/routing/')}>{t.start} <span aria-hidden="true">→</span></a></section>
+    <section class="intro"><p class="eyebrow">{t.eyebrow}</p><h1>{t.heading1}<br />{t.heading2}</h1><p class="lead">{t.lead}</p><a class="text-link" href={localizedPath(language, 'explainers/superagent/architecture/')}>{t.start} <span aria-hidden="true">→</span></a></section>
     <section class="home-figure" aria-label={t.learning}><span>{t.choose}</span><span aria-hidden="true">→</span><span>{t.observe}</span><span aria-hidden="true">→</span><span>{t.inspect}</span></section>
     <section class="section-block" aria-labelledby="topics-title"><div class="section-label"><p class="eyebrow">{t.begin}</p><h2 id="topics-title">{t.exploring}</h2></div><TopicList {language} /></section>
   </>}

@@ -1,3 +1,4 @@
+import './recovery-extra'
 import copy from './recovery.copy.json'
 import { element, language, setupSteps, preserveLanguageState } from '../../shared/steps'
 const T = copy[language]

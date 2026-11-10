@@ -1,3 +1,4 @@
+import './async-react-extra'
 import copy from './async-react.copy.json'
 import { element, language, setupSteps } from '../../shared/steps'
 const T = copy[language]

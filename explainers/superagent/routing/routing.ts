@@ -1,3 +1,4 @@
+import './routing-extra'
 import copy from './routing.copy.json'
 const language = document.documentElement.lang.startsWith('en') ? 'en' : 'zh'
 const T = copy[language]

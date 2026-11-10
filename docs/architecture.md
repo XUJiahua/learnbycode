@@ -37,7 +37,7 @@ dist/                          Pages 发布产物，忽略提交
 
 切换事件重置到第一步；首次进入展示完整的新请求路径。播放由读者主动触发，支持暂停；页面隐藏时自动停止。减少动态效果偏好关闭路径动画，步骤仍可操作。无 JavaScript 时保留静态图、结论、边界和来源。
 
-上下文、异步执行、恢复讲解各自维护教学状态。它们复用 `explainers/shared/steps.ts` 的步骤与语言状态控制，以及 `lesson.css` 的基础排版。含有 `<style data-lesson-style></style>` 的源文件会在渲染时内联公共样式。现有 routing 页保留其独立布局。
+十二篇讲解各自维护教学状态。它们复用 `explainers/shared/steps.ts` 的步骤与语言状态控制，以及 `lesson.css` 的基础排版。含有 `<style data-lesson-style></style>` 的源文件会在渲染时内联公共样式。现有 routing 页保留其独立布局。
 
 ## 双语内容
 
@@ -46,3 +46,13 @@ dist/                          Pages 发布产物，忽略提交
 所有部署路径由 base + 语言前缀 + 内容路径组成。语言按钮只切换同一内容的语言；交互页将情境与步骤附加到对方语言 URL 的 query，避免读者切换语言后丢失位置。
 
 依赖由 packageManager 固定 pnpm 11.5.2；pnpm-workspace.yaml 显式管理安装脚本许可。CI 安装同版本 pnpm，缓存 pnpm store 并使用 frozen lockfile。
+
+## 连续课程与教学模型
+
+主题 lessons 数组的顺序决定阅读顺序。生成器自动给每个 published 页面添加双语上一讲/下一讲导航，跳过 planned 页面；首页从 architecture 讲起。导航样式位于 explainers/shared/navigation.css，不需要作者硬编码路径。
+
+新增页包括 architecture、batching、speculation、channels、byom、experiments、boundaries、security。各页继续使用独立 HTML、文案和 TypeScript；原有四页的扩展交互位于同目录的 *-extra.ts，由主入口导入。
+
+course-models.ts 保存纯教学队列、取消事件归约和文章报告的实验数据。离散轮次模型与真实测量分别标注，不插值缺失测量，也不伪造逐任务轨迹。pnpm test:course 验证事件守恒、忙碌批次的等待与取消竞态。
+
+所有文章架构设想、可读原型实现及教学防护设计均分开说明。BYOM、跨实例 A2A 与完整语义 Watchdog 不因存在交互图而被视作已实现。

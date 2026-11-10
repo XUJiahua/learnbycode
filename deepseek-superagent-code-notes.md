@@ -44,3 +44,18 @@
 ## 实验的解释边界
 
 原文 7.1 的任务执行由耗时工具模拟，每种设计 5 次，测调度和协作，不测真实编码正确性。Super-agent p50/p95 为 12.4/15.7 分钟，去掉 pass-through 为 12.6/15.5；cache-read token 分别为 23.2M、31.8M。因此该组结果中透传的直接证据是减少 cache-read token，不能说透传显著降低延迟，亦不能把 token 指标直接当作总 API 成本。[来源：原文第 7 节](https://x.com/DeepSeekHarness/status/2116857257245987236)。
+
+## 十二页课程的覆盖与边界
+
+新增内容仍对照上述固定提交及原文完整正文。课程按架构 → 路由 → 合批 → 上下文 → 主动执行 → 异步工具 → 渠道 → 环境 → 恢复 → 实验 → 实例边界 → 安全组织。
+
+- architecture 对照原文 §1–2、sessions.ts:138 和 dsh.ts:424。三种 Session 组织方式是责任划分教学图，不是新的性能测量。
+- batching 对照原文 §2.1、§7.2、§8.1 与 evals.ts:108。原型 per-Thread Eval 合批和 Router 推理收取积累输入是不同粒度。离散队列每批固定占用两轮是显式教学假设；原文两个测量端点单独展示，不进行插值。
+- speculation 对照原文 §3.4、授权文档的 off/observe/auto 与哲学文档。默认 observe 不产生 Worker；auto 仍需启用规则和准入。所有复现与修复结果为虚构分支。
+- channels 对照原文 §4.2、§8.2 与 sessions.ts:100 的 ordered relay。IM、PR 与邮件是本地草稿，不是实际渠道集成；中途介入是一个产品教学设计。
+- byom 对照原文 §5、Store/Effects 与执行恢复文档。把本地 Session 保存在磁盘不意味着本机离线时 Loop 能继续；云端重建副本也不等同于用户当前环境。完整分布式 BYOM 为文章架构方向。
+- experiments 原样记录 §7.1 的四组 p50/p95/cache-read 聚合数值。没有逐任务原始日志，故不生成虚构完成曲线、置信区间或显著性。数据不验证真实代码能力，也不支持从 cache-read tokens 直接计算总费用。
+- boundaries 对照 §8.1、§8.3，区分上下文分片和权限隔离。限定摘要与许可开关仅是示例，不是已有的跨实例协议或认证实现；A2A 为一般 agent-to-agent 通信。
+- security 对照 §8.4 和 sessions.ts:138 的真实 danger-full-access 设置。权限约束与不暴露凭据的工具设计作为待实现的防护思路展示，不声称原型已经提供这些保护；没有真实攻击载荷、凭据读取或网络投递。
+
+原有页面扩展：routing 对照 intake.ts 的多 Ticket 扇出及 tickets.ts:180 的 markUnrelated/handBack。图中可退订的都是额外、未绑定 Thread，不模拟取消原始 Thread 或 bound follows；是否重入 Eval 还取决于剩余 owner。recall 用本地文本字符和固定页大小解释内联预算，不冒充 token 计量或长期记忆方案。async-react 对照 tool-jobs:560 的 cancellation-requested/already-finished，区分请求取消和实际终态。recovery 用独立执行路径对比共用故障路径，语义监控仍标为文章设想。

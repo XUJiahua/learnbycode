@@ -33,12 +33,20 @@ pnpm preview       # 预览生产构建
 
 ## 内容
 
-首个主题：[DeepSeek Super-agent](https://xujiahua.github.io/learnbycode/topics/superagent/)，包含四篇中英双语交互讲解：
+首个主题：[DeepSeek Super-agent](https://xujiahua.github.io/learnbycode/topics/superagent/)，包含十二篇中英双语交互讲解，按以下顺序连续阅读：
 
-- 事件路由：切换明确请求、普通聊天、PR 评论和 CI 结果，观察过滤、Router 与订阅透传。
-- 上下文回忆：沿 Trigger、Thread、Ticket 读取报告和关联 PR，对比摘要与全文。
-- 异步 ReAct：并排观察同步等待与后台任务，新指令在步骤边界被处理。
-- 故障恢复：比较进程崩溃、API 故障、人工停止和语义停滞，区分原型实现与文章设想。
+1. 双层架构：一个 Agent 为什么需要多个 Session；连续性与并发的取舍。
+2. 事件路由：过滤、Router、订阅透传、多对多扇出与交回。
+3. 批处理与分片：离散队列模型，对照原文真实测量端点。
+4. 上下文回忆：引用读取、内联预算、缺失引用与过时资料。
+5. 投机执行：off / observe / auto、后台准备与有价值时交付。
+6. 异步 ReAct：前台交互、后台任务、取消与完成的竞态。
+7. 多渠道交互：同一任务在群聊、PR 和邮件中连续推进。
+8. 三者分离与 BYOM：Loop、状态和执行环境的不同生命周期。
+9. 故障恢复：持久状态、独立控制回路和语义监控边界。
+10. 消融实验：四种设计的 p50、p95 与 cache-read tokens。
+11. 上下文边界与 A2A：共享实例、Router 分片和独立实例。
+12. 安全与隐私：不可信输入、权限边界和不暴露凭据的工具设计。
 
 - [如何新增主题与讲解](docs/authoring.md)
 - [自然语言请求与 Paseo remote 公网预览](docs/remote-preview.md)

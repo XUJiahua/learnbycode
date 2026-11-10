@@ -132,7 +132,8 @@
         "en": "Separate inference compute, durable state, and execution environments, then simulate device disconnection and a Loop restart."
       },
       "minutes": 7,
-      "status": "planned"
+      "status": "published",
+      "verifiedAt": "2026-11-10"
     },
     {
       "slug": "recovery",
@@ -159,7 +160,8 @@
         "en": "Compare latency and cache-read tokens across four designs, separating benefits, tradeoffs, and evidence limits."
       },
       "minutes": 8,
-      "status": "planned"
+      "status": "published",
+      "verifiedAt": "2026-11-10"
     },
     {
       "slug": "boundaries",
@@ -172,7 +174,8 @@
         "en": "Switch between a shared instance, Router shards, and separate instances to inspect information visibility and coordination."
       },
       "minutes": 7,
-      "status": "planned"
+      "status": "published",
+      "verifiedAt": "2026-11-10"
     },
     {
       "slug": "security",
@@ -185,7 +188,8 @@
         "en": "Trace untrusted input to tool execution and compare what permission constraints and opaque credential use each address."
       },
       "minutes": 7,
-      "status": "planned"
+      "status": "published",
+      "verifiedAt": "2026-11-10"
     }
   ]
 }

@@ -33,7 +33,12 @@ pnpm preview       # 预览生产构建
 
 ## 内容
 
-首个主题：[DeepSeek Super-agent](https://xujiahua.github.io/learnbycode/topics/superagent/)。首篇讲解「一条消息，走哪条路？」可切换明确请求、普通聊天、PR 后续评论和 CI 结果，支持步骤前后切换、播放、暂停、拖动进度与源码对照。
+首个主题：[DeepSeek Super-agent](https://xujiahua.github.io/learnbycode/topics/superagent/)，包含四篇中英双语交互讲解：
+
+- 事件路由：切换明确请求、普通聊天、PR 评论和 CI 结果，观察过滤、Router 与订阅透传。
+- 上下文回忆：沿 Trigger、Thread、Ticket 读取报告和关联 PR，对比摘要与全文。
+- 异步 ReAct：并排观察同步等待与后台任务，新指令在步骤边界被处理。
+- 故障恢复：比较进程崩溃、API 故障、人工停止和语义停滞，区分原型实现与文章设想。
 
 - [如何新增主题与讲解](docs/authoring.md)
 - [自然语言请求与 Paseo remote 公网预览](docs/remote-preview.md)

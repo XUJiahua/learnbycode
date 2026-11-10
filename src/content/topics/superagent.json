@@ -75,8 +75,9 @@
         "zh": "持久化、执行环境与外部 Watchdog 的边界。",
         "en": "Persistence, execution environments, and the limits of an external Watchdog."
       },
-      "status": "planned",
-      "minutes": 8
+      "status": "published",
+      "minutes": 8,
+      "verifiedAt": "2026-11-10"
     }
   ]
 }

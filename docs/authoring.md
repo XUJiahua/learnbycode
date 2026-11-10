@@ -105,6 +105,8 @@ cp explainers/superagent/routing/routing.ts explainers/caching/read-path/read-pa
 
 上面只展示必要标记；完整页面还需要机制图、figure/figcaption、静态解释和来源。保留一个主标题。翻译不注入 HTML：`{{t:key}}` 的值会转义，应将结构标签写在 HTML 中。
 
+若复用通用讲解布局，可在 head 使用 `<style data-lesson-style></style>`；生成器内联 explainers/shared/lesson.css。步骤页可复用 explainers/shared/steps.ts；参考 recall、async-react 和 recovery 三页，各自的教学逻辑仍独立维护。
+
 可用占位符：
 
 - `{{HOME_URL}}`、`{{TOPIC_URL}}`：当前语言的首页和主题页。
@@ -154,6 +156,8 @@ const text = copy[language]
 ```sh
 pnpm verify
 pnpm render:review
+# 仅对指定讲解执行浏览器视觉检查；其他页面仍正常生成
+pnpm render:review --lesson=recall --lesson=async-react
 BASE_PATH=/ pnpm build
 pnpm build
 pnpm preview

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}" data-register="blueprint">
+<head>
+<title>{{t:title}} · Learn by Code</title>
+<meta name="description" content="{{t:lead}}">
+<link rel="canonical" href="{{PAGE_URL}}">
+<link rel="alternate" hreflang="zh-CN" href="{{ZH_URL}}">
+<link rel="alternate" hreflang="en" href="{{EN_URL}}">
+<link rel="stylesheet" href="kit.css" data-ve-kit>
+<style data-lesson-style></style>
+</head>
+<body>
+<a class="skip" href="#main">{{t:skip}}</a>
+<main id="main">
+<nav class="page-nav" aria-label="{{t:navigation}}"><a class="brand" href="{{HOME_URL}}">[↗] learnbycode</a><a href="{{TOPIC_URL}}">← DeepSeek Super-agent</a><a data-language-switch href="{{OTHER_URL}}" lang="{{OTHER_LANG}}">{{OTHER_LABEL}}</a></nav>
+<header class="heading"><p class="eyebrow">{{t:eyebrow}}</p><h1>{{t:title}}</h1><p class="lead">{{t:lead}}</p><p class="meta">{{t:simulation}} · {{t:verified}}</p></header>
+<figure class="lesson">
+<div class="stage" tabindex="0" role="region" aria-label="{{t:diagramLabel}}"><div class="options" data-interactive hidden><button data-case="crash" aria-pressed="true" type="button">{{t:crash}}</button><button data-case="api" aria-pressed="false" type="button">{{t:api}}</button><button data-case="stop" aria-pressed="false" type="button">{{t:stop}}</button><button data-case="drift" aria-pressed="false" type="button">{{t:drift}}</button></div><div class="options" data-interactive hidden><label><input id="proposal" type="checkbox"> {{t:proposal}}</label></div><div class="systems"><section class="system" id="loop-box"><h2>{{t:loop}}</h2><strong id="loop-state">{{t:loopInitial}}</strong></section><section class="system" id="store-box"><h2>{{t:store}}</h2><strong>{{t:storeInitial}}</strong></section><section class="system" id="watch-box"><h2>{{t:watchdog}}</h2><strong id="watch-state">{{t:watchInitial}}</strong></section></div><div class="record-row"><span>{{t:durable}}</span><span>{{t:lost}}</span></div><p class="notice">{{t:stateHint}}</p></div>
+<div class="actions" data-interactive hidden><button id="restart" type="button">{{t:restart}}</button><button id="previous" type="button">{{t:previous}}</button><button id="next" type="button">{{t:next}} →</button><input id="progress" type="range" min="0" max="4" value="0" aria-label="{{t:progress}}"><span class="count" id="step-count">1 / 5</span></div>
+<div class="step-copy" aria-live="polite" aria-atomic="true"><h2 id="step-title">{{t:step0Title}}</h2><p id="step-explanation">{{t:step0Explanation}}</p></div>
+<figcaption>Fig. 1 · {{t:caption}}</figcaption>
+</figure>
+<p id="static-fallback" class="notice">{{t:fallback}}</p>
+<section class="below" aria-label="{{t:codeTitle}}"><div><h2>{{t:codeTitle}}</h2><a id="source-link" class="source-link" href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/docs/007-architecture.md#L149">{{t:source0}} ↗</a><pre><code id="source-code">{{t:step0Code}}</code></pre><p>{{t:codeNote}}</p></div><div><h2>{{t:limitsTitle}}</h2><ul><li>{{t:limit0}}</li><li>{{t:limit1}}</li><li>{{t:limit2}}</li></ul></div></section>
+<section class="sources" aria-label="{{t:sources}}"><p class="eyebrow">{{t:sources}}</p><div class="source-links"><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/docs/007-architecture.md#L149">{{t:source0}} ↗</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/docs/006-deployment.md#L132">{{t:source1}} ↗</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/executor/dsh.ts#L520">{{t:source2}} ↗</a><a href="https://x.com/DeepSeekHarness/status/2116857257245987236">{{t:source3}} ↗</a></div></section>
+<a class="source-link" href="{{TOPIC_URL}}">← {{t:back}}</a>
+</main>
+<script data-interaction></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Follow AGENTS.md for this project. For natural-language requests to add or update topics or interactive lessons, read and execute docs/authoring.md. For Paseo remote delivery, follow docs/remote-preview.md and provide a verified public preview URL.

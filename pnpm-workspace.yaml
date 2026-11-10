@@ -1,0 +1,15 @@
+saveExact: true
+packages:
+  - tools/paseo-preview
+autoInstallPeers: false
+peerDependencyRules:
+  ignoreMissing:
+    - react
+    - react-native
+    - '@earendil-works/pi-coding-agent'
+engineStrict: true
+allowBuilds:
+  esbuild: true
+  sharp: true
+  '@google/genai': false
+  protobufjs: false

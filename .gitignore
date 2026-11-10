@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.astro/
+.generated/
+.preview/
+public/explainers/
+public/en/explainers/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+.DS_Store

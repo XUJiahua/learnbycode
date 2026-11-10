@@ -1,0 +1,10 @@
+{
+  "worktree": { "setup": "pnpm install --frozen-lockfile" },
+  "scripts": {
+    "public-preview": { "type": "service", "command": "pnpm preview:public" },
+    "preview-refresh": { "command": "pnpm preview:refresh" },
+    "preview-status": { "command": "pnpm preview:status" },
+    "preview-stop": { "command": "pnpm preview:stop" },
+    "verify": { "command": "pnpm verify" }
+  }
+}

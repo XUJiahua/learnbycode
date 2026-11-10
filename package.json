@@ -1,0 +1,35 @@
+{
+  "name": "learnbycode",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "scripts": {
+    "dev": "pnpm render && astro dev --host 0.0.0.0",
+    "check": "astro check && tsc --project tsconfig.interactions.json --noEmit && pnpm --dir tools/paseo-preview check",
+    "render": "node scripts/render-explainers.mjs",
+    "render:review": "node scripts/render-explainers.mjs --review",
+    "build": "pnpm render && astro build && node scripts/check-site.mjs",
+    "preview": "astro preview --host 0.0.0.0",
+    "verify": "pnpm check && pnpm test:preview && pnpm build",
+    "preview:public": "node scripts/public-preview.mjs serve",
+    "preview:refresh": "node scripts/public-preview.mjs refresh",
+    "preview:status": "node scripts/public-preview.mjs status",
+    "preview:stop": "node scripts/public-preview.mjs stop",
+    "preview:enable": "node scripts/public-preview.mjs enable",
+    "test:preview": "node --test scripts/preview/*.test.mjs && pnpm --dir tools/paseo-preview test"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "astro": "6.4.8",
+    "esbuild": "0.28.2",
+    "node-html-parser": "9.0.1",
+    "typescript": "5.9.3",
+    "visual-explainer": "0.15.0",
+    "playwright-core": "1.65.0",
+    "zod": "4.4.3"
+  },
+  "packageManager": "pnpm@11.5.2"
+}

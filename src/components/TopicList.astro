@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content'
+import { localizedPath } from '../lib/paths'
+import { ui, type Language } from '../lib/i18n'
+interface Props { language: Language }
+const { language } = Astro.props
+const t = ui[language]
+const topics = (await getCollection('topics')).sort((a, b) => a.data.order - b.data.order)
+---
+<div class="topic-list">
+  {topics.map(topic => (
+    <a class="topic-row" href={localizedPath(language, `topics/${topic.id}/`)}>
+      <div><p class="eyebrow">{topic.data.tags[language].join(' / ')}</p><h2>{topic.data.title[language]}</h2><p>{topic.data.description[language]}</p></div>
+      <div class="topic-end"><span>{topic.data.lessons.filter(x => x.status === 'published').length} {topic.data.lessons.filter(x => x.status === 'published').length === 1 ? t.countOne : t.count}</span><span class="arrow" aria-hidden="true">↗</span></div>
+    </a>
+  ))}
+</div>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}" data-register="blueprint">
+<head>
+<title>{{t:pageTitle}} · Learn by Code</title>
+<meta name="description" content="{{t:pageDescription}}">
+<link rel="canonical" href="{{PAGE_URL}}">
+<link rel="alternate" hreflang="zh-CN" href="{{ZH_URL}}">
+<link rel="alternate" hreflang="en" href="{{EN_URL}}">
+<link rel="stylesheet" href="kit.css" data-ve-kit>
+<style>
+:root{color-scheme:light;--bg:#f6f6f0;--surface:#fffef9;--text:#202f2b;--text-dim:#56645e;--accent:#146b58;--accent-dim:#e3eee6;--border:#d5dcd4;--border-bright:#789286}
+body{background:var(--bg);color:var(--text)}main{max-width:1180px;margin:0 auto;padding:0 30px 48px}.page-nav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);font-size:13px}.page-nav a{color:var(--text-dim);text-decoration:none}.page-nav .brand{color:var(--accent);font-family:Georgia,serif;font-size:22px;font-weight:700}.heading{padding:32px 0 20px}.heading .eyebrow{margin-bottom:10px}.heading h1{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(30px,4vw,44px);line-height:1.3;letter-spacing:-.03em;margin:0 0 10px}.heading .lead{font-size:16px;max-width:780px;margin:0;line-height:1.8;color:var(--text-dim)}.lesson-meta{display:flex;align-items:center;gap:16px;font-size:11px;color:var(--text-dim);margin-top:14px}.lesson-meta span:first-child{border:1px solid var(--border-bright);padding:2px 6px;border-radius:3px}.scenario-picker{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:0 0 16px}.scenario-picker legend{font-size:12px;color:var(--text-dim);margin-bottom:8px}.scenario-picker button,.actions button{font:inherit;font-size:13px;background:var(--surface);color:var(--text);border:1px solid var(--border-bright);border-radius:3px;padding:9px 14px;cursor:pointer}.scenario-picker button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700}.scenario-picker button[aria-pressed="true"]::before{content:"✓ ";font-weight:700}.scenario-picker button:focus-visible,.actions button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.event-strip{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:13px 18px;background:var(--surface);border:1px solid var(--border);border-bottom:0}.event-strip .event-label{font-size:11px;color:var(--accent);font-family:monospace}.event-strip strong{font-size:15px;font-weight:500}.event-strip small{font-size:11px;color:var(--text-dim)}figure.routing{margin:0}.diagram-frame{overflow-x:auto;border:1px solid var(--border);background:var(--surface)}svg.routing-map{width:100%;min-width:740px;display:block;height:auto}.routing-map .node rect{fill:var(--surface);stroke:#9aaca1;stroke-width:1.5}.routing-map .node text{fill:var(--text);font-size:17px;text-anchor:middle;dominant-baseline:middle;font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}.routing-map .node .small{font-size:12px;fill:var(--text-dim)}.routing-map .node.visited rect{fill:#eef3ed;stroke:var(--accent)}.routing-map .node.active rect{fill:var(--accent-dim);stroke:var(--accent);stroke-width:3}.routing-map .node.active .node-title{font-weight:700}.routing-map .node.active .now{display:block}.routing-map .now{display:none;font-size:10px;fill:var(--accent);font-weight:700}.routing-map .route path{stroke:#b0beb4;stroke-width:1.5;fill:none;marker-end:url(#route-arrow)}.routing-map .route text{fill:var(--text-dim);font-size:12px;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5px;stroke-linejoin:round}.routing-map .route.visited path{stroke:var(--accent);stroke-width:2}.routing-map .route.active path{stroke:var(--accent);stroke-width:3;stroke-dasharray:9 5;animation:route-travel 1s linear infinite}.routing-map .route.active text{fill:var(--accent);font-weight:700}.routing-map .boundary{fill:none;stroke:#8b9e91;stroke-width:1;stroke-dasharray:5 5}.routing-map .boundary-label{fill:var(--text-dim);font-size:11px;font-family:monospace}.routing-map .small-note{fill:var(--text-dim);font-size:11px}.routing-map .arrowhead{fill:#668c78}.player{padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-top:0}.actions{display:flex;align-items:center;gap:8px}.actions button:disabled{opacity:.45;cursor:default}.actions input{flex:1;min-width:50px;accent-color:var(--accent)}.actions #step-count{font-family:monospace;min-width:43px;text-align:right;font-size:12px}.step-copy{display:grid;grid-template-columns:225px 1fr;gap:24px;margin-top:16px;padding-top:15px;border-top:1px solid var(--border)}#step-title{font-size:16px;line-height:1.6;margin:0}#step-explanation{font-size:13px;color:var(--text-dim);line-height:1.8;margin:0;max-width:65ch}.routing figcaption{font-size:13px;line-height:1.8;color:var(--text-dim);padding:12px 0;margin:0}.routing figcaption b{color:var(--accent)}.below{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;border-top:1px solid var(--border);padding-top:28px;margin-top:20px}.below h2{font-size:19px;font-family:Georgia,"Noto Serif SC",serif;margin:0 0 12px}.below p,.below li{font-size:13px;line-height:1.9;color:var(--text-dim)}.below ul{padding-left:18px}.below pre{margin:12px 0;font-size:12px;line-height:1.8;background:#edf0e9;padding:16px;overflow-x:auto;border-radius:3px}.source-link{font-size:11px;overflow-wrap:anywhere;color:var(--accent)}.source-note{font-size:11px!important}.sources{margin-top:36px;padding-top:22px;border-top:1px solid var(--border)}.sources p,.sources a{font-size:12px;line-height:1.9;overflow-wrap:anywhere}.sources .source-links{display:flex;gap:12px 22px;flex-wrap:wrap}.footer-link{font-size:13px;display:inline-block;margin-top:26px;color:var(--accent)}[hidden]{display:none!important}.skip{position:absolute;transform:translateY(-200%);background:var(--surface);padding:10px;z-index:9}.skip:focus{transform:translateY(0)}@keyframes route-travel{to{stroke-dashoffset:-28}}@media(prefers-reduced-motion:reduce){.routing-map .route.active path{animation:none}*{scroll-behavior:auto!important}}@media(max-width:700px){main{padding:0 18px 30px}.page-nav{font-size:12px}.page-nav .brand{font-size:19px}.heading{padding-top:25px}.lesson-meta{flex-wrap:wrap;gap:8px}.event-strip{gap:6px 12px}.event-strip small{width:100%}.player{padding:14px}.actions{flex-wrap:wrap}.actions button{font-size:12px;padding:8px 10px}.actions input{flex-basis:45%;order:2}.actions #step-count{order:2}.step-copy{grid-template-columns:1fr;gap:5px}.below{grid-template-columns:1fr;gap:24px}.diagram-hint{display:block!important}.routing figcaption{font-size:12px}}@media print{.actions,#interaction-controls,.page-nav,.skip{display:none!important}.diagram-frame{overflow:visible}.routing-map{min-width:0!important}.routing-map .route.active path{animation:none}.below{display:block}.below>div{break-inside:avoid}main{max-width:none}}
+body{margin:0;display:block}main{display:block}header.heading{margin:0;padding:24px 0 20px}.heading h1{max-width:none}.routing-map .node .small,.routing-map .route text,.routing-map .boundary-label,.routing-map .small-note,.routing-map .now{font-size:14px}svg.routing-map{min-width:1100px}.step-copy{display:flex;flex-direction:column;gap:14px}.step-copy h2{margin:0;padding:0}.step-copy p{margin:0;padding:0}.event-strip{margin:0}figure.routing{margin:0}.sources{margin-top:32px}
+html[lang="en"] .routing-map .node .small{font-size:13px}html[lang="en"] .routing-map .small-note{font-size:13px}.page-nav a:last-child{white-space:nowrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">{{t:skip}}</a>
+<main id="main">
+<nav class="page-nav" aria-label="{{t:navigation}}"><a class="brand" href="{{HOME_URL}}">[↗] learnbycode</a><a href="{{TOPIC_URL}}">← DeepSeek Super-agent</a><a data-language-switch href="{{OTHER_URL}}" lang="{{OTHER_LANG}}">{{OTHER_LABEL}}</a></nav>
+<header class="heading">
+<p class="eyebrow">{{t:eyebrow}}</p>
+<h1>{{t:pageTitle}}</h1>
+<p class="lead">{{t:lead}}</p>
+<div class="lesson-meta"><span>{{t:simulation}}</span><span>{{t:verified}}</span></div>
+</header>
+<div id="interaction-controls" hidden>
+<fieldset class="scenario-picker"><legend>{{t:choose}}</legend><button type="button" data-scenario="request" aria-pressed="true">{{t:requestLabel}}</button><button type="button" data-scenario="chat" aria-pressed="false">{{t:chatLabel}}</button><button type="button" data-scenario="followup" aria-pressed="false">{{t:followupLabel}}</button><button type="button" data-scenario="ci" aria-pressed="false">{{t:ciLabel}}</button></fieldset>
+</div>
+<div class="event-strip"><span class="event-label">TRIGGER</span><strong id="event-message">{{t:requestMessage}}</strong><small id="event-context">{{t:requestContext}}</small></div>
+<figure class="routing">
+<div class="diagram-frame" tabindex="0" role="region" aria-label="{{t:region}}">
+<svg class="routing-map" viewBox="0 0 1100 340" role="img" aria-labelledby="map-title map-desc">
+<title id="map-title">{{t:mapTitle}}</title>
+<desc id="map-desc">{{t:mapDescription}}</desc>
+<defs><marker id="route-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrowhead" d="M0 0L10 5L0 10Z"/></marker></defs>
+<rect class="boundary" x="235" y="42" width="430" height="204" rx="4"/><text class="boundary-label" x="253" y="65">{{t:codePath}}</text>
+<g class="route" data-edge="source-scope"><path d="M205 145H270"/><text x="237" y="132">{{t:receive}}</text></g>
+<g class="route" data-edge="scope-thread"><path d="M425 145H490"/><text x="457" y="132">{{t:admit}}</text></g>
+<g class="route" data-edge="thread-eval"><path d="M645 130H720"/><text x="682" y="116">{{t:queue}}</text></g>
+<g class="route" data-edge="eval-quiet"><path d="M885 130H945"/><text x="916" y="116">{{t:reject}}</text></g>
+<g class="route" data-edge="thread-worker"><path d="M568 185V283H720"/><text x="630" y="271">{{t:pass}}</text></g>
+<g class="route" data-edge="eval-worker"><path d="M802 178V245"/><text x="844" y="215">{{t:dispatch}}</text></g>
+<g class="node" data-node="source"><rect x="40" y="105" width="165" height="80" rx="4"/><text class="node-title" x="122" y="135">Source</text><text class="small" x="122" y="160">{{t:trigger}}</text><text class="now" x="122" y="94">{{t:now}}</text></g>
+<g class="node" data-node="scope"><rect x="270" y="105" width="155" height="80" rx="4"/><text class="node-title" x="347" y="135">{{t:scope}}</text><text class="small" x="347" y="160">SourceScope</text><text class="now" x="347" y="94">{{t:now}}</text></g>
+<g class="node" data-node="thread"><rect x="490" y="105" width="155" height="80" rx="4"/><text class="node-title" x="567" y="135">{{t:subscriptions}}</text><text class="small" x="567" y="160">{{t:owners}}</text><text class="now" x="567" y="94">{{t:now}}</text></g>
+<g class="node" data-node="eval"><rect x="720" y="82" width="165" height="96" rx="4"/><text class="node-title" x="802" y="110">Eval / Router</text><text class="small" x="802" y="137">{{t:gate}}</text><text class="small" x="802" y="158">{{t:admission}}</text><text class="now" x="802" y="70">{{t:now}}</text></g>
+<g class="node" data-node="quiet"><rect x="945" y="90" width="125" height="80" rx="4"/><text class="node-title" x="1007" y="121">{{t:ignore}}</text><text class="small" x="1007" y="146">{{t:noWork}}</text><text class="now" x="1007" y="78">{{t:now}}</text></g>
+<g class="node" data-node="worker"><rect x="720" y="245" width="165" height="76" rx="4"/><text class="node-title" x="802" y="271">Worker</text><text class="small" x="802" y="297">{{t:isolation}}</text><text class="now" x="973" y="282">← {{t:now}}</text></g>
+<text class="small-note" x="40" y="289">{{t:available}}</text><text class="small-note" x="40" y="309">{{t:active}}</text>
+</svg>
+</div>
+<div class="player">
+<div class="actions" id="action-controls" hidden><button type="button" id="restart">{{t:restart}}</button><button type="button" id="previous" aria-label="{{t:previous}}">←</button><button type="button" id="play" aria-pressed="false">{{t:play}}</button><button type="button" id="next" aria-label="{{t:next}}">{{t:next}} →</button><input id="progress" type="range" min="0" max="4" value="4" aria-label="{{t:progress}}"><span id="step-count">5 / 5</span></div>
+<div class="step-copy" aria-live="polite" aria-atomic="true"><h2 id="step-title">{{t:staticTitle}}</h2><p id="step-explanation">{{t:staticExplanation}}</p></div>
+</div>
+<figcaption><b>Fig. 1</b> <span id="outcome">{{t:requestResult}}</span><span class="diagram-hint" style="display:none">{{t:scrollHint}}</span></figcaption>
+</figure>
+<p id="static-fallback">{{t:fallback}}</p>
+<section class="below" aria-label="{{t:evidence}}">
+<div><h2>{{t:codeTitle}}</h2><a class="source-link" id="source-link" href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/core/intake.ts#L19">src/core/intake.ts:19 ↗</a><pre><code id="code">if (!this.owners(trigger).length) this.queueForEval(trigger)
+for (const ticketId of fanout) this.tickets.wake(ticketId)</code></pre><p class="source-note" id="code-note">{{t:codeNote}}</p></div>
+<div><h2>{{t:limitsTitle}}</h2><ul><li><strong>{{t:subscriptionLimitTitle}}</strong>{{t:subscriptionLimit}}</li><li><strong>{{t:evalLimitTitle}}</strong>{{t:evalLimit}}</li><li><strong>{{t:ciLimitTitle}}</strong>{{t:ciLimit}}</li></ul></div>
+</section>
+<section class="sources" aria-label="{{t:sources}}">
+<p class="ve-label caps">{{t:sourcesTitle}}</p>
+<div class="source-links"><a href="https://x.com/DeepSeekHarness/status/2116857257245987236">{{t:article}}</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/core/intake.ts">{{t:intakeSource}}</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/src/core/evals.ts">{{t:evalSource}}</a><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/8c32a9dc5d72c033816c6a8110b37f40cf94fba4/docs/001-domain.md">{{t:domainSource}}</a></div>
+<p>{{t:commitPrefix}}<code>8c32a9d</code>{{t:sourceBoundary}}</p>
+</section>
+<a class="footer-link" href="{{TOPIC_URL}}">{{t:back}}</a>
+</main>
+<script data-interaction></script>
+</body>
+</html>

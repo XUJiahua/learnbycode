@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content'
+import LibraryPage from '../components/LibraryPage.astro'
+import { languages, languagePrefix } from '../lib/i18n'
+export async function getStaticPaths() {
+  const topics = await getCollection('topics')
+  return languages.flatMap(language => {
+    const prefix = languagePrefix(language)
+    return [
+      { params: { route: prefix.replace(/\/$/, '') || undefined }, props: { language, kind: 'home' as const } },
+      { params: { route: `${prefix}topics` }, props: { language, kind: 'topics' as const } },
+      ...topics.map(topic => ({ params: { route: `${prefix}topics/${topic.id}` }, props: { language, kind: 'topic' as const, topic } })),
+      ...(language === 'en' ? [{ params: { route: 'en/404' }, props: { language, kind: 'notFound' as const } }] : []),
+    ]
+  })
+}
+---
+<LibraryPage {...Astro.props} />

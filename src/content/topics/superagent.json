@@ -1,0 +1,80 @@
+{
+  "title": {
+    "zh": "DeepSeek Super-agent",
+    "en": "DeepSeek Super-agent"
+  },
+  "subtitle": {
+    "zh": "从一个请求，看见整个系统",
+    "en": "See the system through one request"
+  },
+  "description": {
+    "zh": "沿着真实源码，理解 Agent 如何接收事件、分派任务、找回上下文，以及持续协作。",
+    "en": "Follow real source code to learn how agents receive events, dispatch work, recall context, and keep collaborating."
+  },
+  "order": 1,
+  "tags": {
+    "zh": [
+      "Agent 架构",
+      "源码导读"
+    ],
+    "en": [
+      "Agent architecture",
+      "Source walkthrough"
+    ]
+  },
+  "lessons": [
+    {
+      "slug": "routing",
+      "title": {
+        "zh": "一条消息，走哪条路？",
+        "en": "Which path does a message take?"
+      },
+      "description": {
+        "zh": "切换四种事件，逐步观察过滤、Router 与订阅透传。",
+        "en": "Compare four events through filtering, the Router, and subscription pass-through."
+      },
+      "status": "published",
+      "minutes": 6,
+      "verifiedAt": "2026-11-10"
+    },
+    {
+      "slug": "recall",
+      "title": {
+        "zh": "上下文如何沿引用找回来",
+        "en": "Recall context by following references"
+      },
+      "description": {
+        "zh": "Inline & Spill 与 Chain of Recall。",
+        "en": "Inline & Spill and Chain of Recall."
+      },
+      "status": "planned",
+      "minutes": 7
+    },
+    {
+      "slug": "async-react",
+      "title": {
+        "zh": "任务还在跑，指令已经到",
+        "en": "Keep talking while a task runs"
+      },
+      "description": {
+        "zh": "异步 ReAct 如何缩短前台等待。",
+        "en": "How asynchronous ReAct reduces foreground waiting."
+      },
+      "status": "planned",
+      "minutes": 6
+    },
+    {
+      "slug": "recovery",
+      "title": {
+        "zh": "进程停止后，工作如何继续",
+        "en": "Keep work going after a process stops"
+      },
+      "description": {
+        "zh": "持久化、执行环境与外部 Watchdog 的边界。",
+        "en": "Persistence, execution environments, and the limits of an external Watchdog."
+      },
+      "status": "planned",
+      "minutes": 8
+    }
+  ]
+}

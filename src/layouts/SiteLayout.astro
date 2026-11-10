@@ -1,0 +1,38 @@
+---
+import '../styles/global.css'
+import { sitePath, localizedPath } from '../lib/paths'
+import { ui, htmlLanguage, type Language } from '../lib/i18n'
+interface Props { title: string; description: string; language: Language; contentPath: string; noindex?: boolean }
+const { title, description, language, contentPath, noindex = false } = Astro.props
+const t = ui[language]
+const alternate = (lang: Language) => localizedPath(lang, contentPath === '404.html' && lang === 'en' ? '404/' : contentPath)
+const canonical = new URL(alternate(language), Astro.site)
+---
+<!doctype html>
+<html lang={htmlLanguage[language]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} · Learn by Code</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#f6f6f0" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="zh-CN" href={new URL(alternate('zh'), Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(alternate('en'), Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href={sitePath('favicon.svg')} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t.skip}</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href={localizedPath(language)} aria-label={t.home}><span class="brand-mark" aria-hidden="true">[↗]</span> learn<span class="muted">by</span>code</a>
+      <nav aria-label={t.nav}><a href={localizedPath(language, 'topics/')}>{t.topics}</a><a data-language-switch href={alternate(language === 'zh' ? 'en' : 'zh')} lang={language === 'zh' ? 'en' : 'zh-CN'}>{language === 'zh' ? 'English' : '中文'}</a><a href="https://github.com/XUJiahua/learnbycode">GitHub ↗</a></nav>
+    </header>
+    <main id="main" class="wrap"><slot /></main>
+    <footer class="site-footer wrap"><span>Learn by Code · {t.footer}</span><span>{t.motto}</span></footer>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+saveExact: true
+autoInstallPeers: false
+engineStrict: true
+peerDependencyRules:
+  ignoreMissing:
+    - '@earendil-works/pi-coding-agent'
+allowBuilds:
+  esbuild: true
+  sharp: true
+  '@google/genai': false
+  protobufjs: false

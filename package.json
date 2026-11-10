@@ -8,12 +8,18 @@
   },
   "scripts": {
     "dev": "pnpm render && astro dev --host 0.0.0.0",
-    "check": "astro check && tsc --project tsconfig.interactions.json --noEmit",
+    "check": "astro check && tsc --project tsconfig.interactions.json --noEmit && pnpm --dir tools/paseo-preview check",
     "render": "node scripts/render-explainers.mjs",
     "render:review": "node scripts/render-explainers.mjs --review",
     "build": "pnpm render && astro build && node scripts/check-site.mjs",
     "preview": "astro preview --host 0.0.0.0",
-    "verify": "pnpm check && pnpm build"
+    "verify": "pnpm check && pnpm test:preview && pnpm build",
+    "preview:public": "node scripts/public-preview.mjs serve",
+    "preview:refresh": "node scripts/public-preview.mjs refresh",
+    "preview:status": "node scripts/public-preview.mjs status",
+    "preview:stop": "node scripts/public-preview.mjs stop",
+    "preview:enable": "node scripts/public-preview.mjs enable",
+    "test:preview": "node --test scripts/preview/*.test.mjs && pnpm --dir tools/paseo-preview test"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",

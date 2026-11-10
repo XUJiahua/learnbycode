@@ -1,0 +1,5 @@
+{
+  "id": "learnbycode-preview",
+  "description": "Keeps a Cloudflare public preview of Learn by Code ready across agent turns.",
+  "requirements": { "paseo": ">=0.14.0 <0.15.0" }
+}

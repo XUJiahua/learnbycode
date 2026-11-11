@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
-    "astro": "6.4.8",
+    "astro": "7.4.7",
     "esbuild": "0.28.2",
-    "node-html-parser": "9.0.1",
-    "typescript": "5.9.3",
+    "node-html-parser": "9.0.7",
+    "typescript": "7.0.2",
     "visual-explainer": "0.15.0",
     "playwright-core": "1.65.0",
-    "zod": "4.4.3"
+    "zod": "4.6.7"
   },
   "packageManager": "pnpm@11.5.2"
 }
